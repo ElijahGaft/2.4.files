@@ -72,7 +72,7 @@ def input_persone():
 def get_shop_list_by_dishes(dish_list, persone):
     menu = file_data_open()
     answer_list = []
-    answer_unik = []
+    unik_list = []
     # dish_list = set(dish_list)
     # a = dish_list.intersection(menu)
     # print(a)
@@ -86,18 +86,23 @@ def get_shop_list_by_dishes(dish_list, persone):
                                                                 'quantity': int(ingr.get('quantity')) * persone}}
             try:
                 assert ingr_unik.keys() in answer_list,''
-                # Нужно зайти внутрь словаря и увеличить колличество
+                a = (ingr_unik.get(ingr.get('ingridient_name'))).get('quantity')# Нужно зайти внутрь словаря и увеличить колличество
+                for i in unik_list:
+                    if i.keys() == ingr_unik.keys():
+                        new = {ingr.get('ingridient_name'): {'measure': ingr.get('measure'),
+                                                                'quantity': (int(ingr.get('quantity')) * persone) + a}}
+                        i.update(new)
             except AssertionError:
-                answer_unik.append(ingr_unik)
+                unik_list.append(ingr_unik)
                 answer_list.append(ingr_unik.keys())
-                # print(answer_unik, '\n')
+                # print(unik_list, '\n')
                 # print(answer_list, '\n')
 
-    print(answer_unik)
+    print(unik_list)
     # for i in answer_list:
-    #     if (set(i)).intersection(set(answer_unik)) != set(None):
+    #     if (set(i)).intersection(set(unik_list)) != set(None):
     #
-    #         print(set(i).intersection(set(answer_unik)))
+    #         print(set(i).intersection(set(unik_list)))
 
 
 
