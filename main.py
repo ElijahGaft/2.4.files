@@ -73,9 +73,7 @@ def get_shop_list_by_dishes(dish_list, persone):
     menu = file_data_open()
     answer_list = []
     unik_list = []
-    # dish_list = set(dish_list)
-    # a = dish_list.intersection(menu)
-    # print(a)
+
 
     for dish_in in dish_list: # для первого блюда из введённого
       for dish_l in menu:     # проходясь по меню сверяем
@@ -95,28 +93,8 @@ def get_shop_list_by_dishes(dish_list, persone):
             except AssertionError:
                 unik_list.append(ingr_unik)
                 answer_list.append(ingr_unik.keys())
-                # print(unik_list, '\n')
-                # print(answer_list, '\n')
 
     print(unik_list)
-    # for i in answer_list:
-    #     if (set(i)).intersection(set(unik_list)) != set(None):
-    #
-    #         print(set(i).intersection(set(unik_list)))
-
-
-
-
-    # Нужный нам выод:
-    # {
-    #   'Картофель': {'measure': 'кг', 'quantity': 2},
-    #   'Молоко': {'measure': 'мл', 'quantity': 200},
-    #   'Помидор': {'measure': 'шт', 'quantity': 4},
-    #   'Сыр гауда': {'measure': 'г', 'quantity': 200},
-    #   'Яйцо': {'measure': 'шт', 'quantity': 4},
-    #   'Чеснок': {'measure': 'зубч', 'quantity': 6}
-    # }
-
 
 get_shop_list_by_dishes(input_dish(), input_persone())
 
