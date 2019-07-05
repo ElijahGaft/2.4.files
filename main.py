@@ -98,4 +98,4 @@ def get_shop_list_by_dishes(dish_list, persone):
 
 get_shop_list_by_dishes(input_dish(), input_persone())
 
-# Я Что-то невероятно туплю. Неполучается сформировать файл в нужный вид. Ощущение, что всё на костылях строится.
+#Ощущение, что всё на костылях строится.
